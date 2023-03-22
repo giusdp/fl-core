@@ -50,13 +50,6 @@ config :core, CoreWeb.Endpoint,
   secret_key_base: "YQWoCfQDbuv2yB8YdF+TXhDHI+9T3wJj0W1iT0A0yg+i7f0I0jyo3mtUvULET37c",
   watchers: []
 
-# Set a higher stacktrace during development. Avoid configuring such
-# in production as building large stacktraces may be expensive.
-config :phoenix, :stacktrace_depth, 20
-
-# Initialize plugs at runtime for faster development compilation
-config :phoenix, :plug_init_mode, :runtime
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -83,6 +76,8 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
+
+config :test, dev_routes: true
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime

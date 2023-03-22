@@ -1,4 +1,4 @@
-# Copyright 2022 Giuseppe De Palma, Matteo Trentin
+# Copyright 2023 Giuseppe De Palma, Matteo Trentin
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,19 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-defmodule CoreWeb.ErrorViewTest do
-  use CoreWeb.ConnCase, async: true
+defmodule CoreWeb.ErrorJSON do
+  # If you want to customize a particular status code,
+  # you may add your own clauses, such as:
+  #
+  # def render("500.json", _assigns) do
+  #   %{errors: %{detail: "Internal Server Error"}}
+  # end
 
-  # Bring render/3 and render_to_string/3 for testing custom views
-  import Phoenix.View
-
-  test "renders 404.json" do
-    assert render(CoreWeb.ErrorView, "404.json", []) == %{errors: %{detail: "Not Found"}}
-  end
-
-  test "renders 500.json" do
-    assert render(CoreWeb.ErrorView, "500.json", []) == %{
-             errors: %{detail: "Internal Server Error"}
-           }
+  # By default, Phoenix returns the status message from
+  # the template name. For example, "404.json" becomes
+  # "Not Found".
+  def render(template, _assigns) do
+    %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
   end
 end

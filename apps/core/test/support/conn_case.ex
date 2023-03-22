@@ -33,6 +33,11 @@ defmodule CoreWeb.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint CoreWeb.Endpoint
+
+      use CoreWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
@@ -41,10 +46,6 @@ defmodule CoreWeb.ConnCase do
       import Support.AssertionHelpers
       import Mox
 
-      alias CoreWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint CoreWeb.Endpoint
       @moduletag integration_test: true
     end
   end

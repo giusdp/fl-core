@@ -90,7 +90,7 @@ defmodule CoreWeb.FunctionControllerTest do
   describe "create function" do
     test "renders function when data without events/sinks is valid", %{conn: conn} do
       module = module_fixture()
-      conn = post(conn, Routes.function_path(conn, :create, module.name), @create_attrs)
+      conn = post(conn, ~p"/api/functions/#{module.name}", @create_attrs)
       assert %{"name" => name} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.function_path(conn, :show, module.name, name))

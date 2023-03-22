@@ -24,21 +24,21 @@ defmodule CoreWeb.FallbackController do
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn
     |> put_status(:unprocessable_entity)
-    |> put_view(CoreWeb.ChangesetView)
-    |> render("error.json", changeset: changeset)
+    |> put_view(json: CoreWeb.ChangesetJSON)
+    |> render(:error, changeset: changeset)
   end
 
   def call(conn, {:error, :not_found}) do
     conn
     |> put_status(:not_found)
-    |> put_view(CoreWeb.ErrorView)
+    |> put_view(html: CoreWeb.ErrorHTML, json: CoreWeb.ErrorJSON)
     |> render(:"404")
   end
 
   def call(conn, {:error, :bad_params}) do
     conn
     |> put_status(:bad_request)
-    |> put_view(CoreWeb.ErrorView)
+    |> put_view(html: CoreWeb.ErrorHTML, json: CoreWeb.ErrorJSON)
     |> render(:"400")
   end
 

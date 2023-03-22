@@ -49,11 +49,11 @@ defmodule Worker.MixProject do
       {:jason, "~> 1.3"},
       {:libcluster, "~> 3.3"},
       {:logger_file_backend, "~> 0.0.13"},
-      {:telemetry, "~> 1.1.0"},
+      {:telemetry, "~> 1.2.1"},
       {:telemetry_poller, "~> 1.0"},
       {:prom_ex, git: "https://github.com/akoutmos/prom_ex.git"},
       {:wasmex, "~> 0.8"},
-      {:httpoison, "~> 2.0"},
+      {:httpoison, "~> 2.1"},
 
       # Dev deps
       {:mox, "~> 1.0", only: :test}
