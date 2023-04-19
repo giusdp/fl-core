@@ -21,7 +21,7 @@ defmodule Worker.MixProject do
       version: "0.8.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
-      deps_path: "../../deps",
+      deps_path: "deps",
       lockfile: "../../mix.lock",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -46,13 +46,13 @@ defmodule Worker.MixProject do
       {:data, in_umbrella: true},
 
       # Prod deps
-      {:jason, "~> 1.3"},
+      {:jason, "~> 1.4"},
       {:libcluster, "~> 3.3"},
       {:logger_file_backend, "~> 0.0.13"},
       {:telemetry, "~> 1.2.1"},
       {:telemetry_poller, "~> 1.0"},
-      {:prom_ex, git: "https://github.com/akoutmos/prom_ex.git"},
-      {:wasmex, "~> 0.8"},
+      {:prom_ex, "~> 1.2"},
+      {:wasmex, "~> 0.8.2"},
       {:httpoison, "~> 2.1"},
 
       # Dev deps
